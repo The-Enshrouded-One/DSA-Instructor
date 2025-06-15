@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Instructor - No Nonsense Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>🎯 DSA Instructor</h1>
+            <p>"No nonsense. No fluff. Just algorithms."</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="warning">
+            ⚠️ This instructor only answers DSA-related questions. Ask anything else at your own risk!
+        </div>
+        
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message instructor-message">
+                    <div class="message-header">DSA Instructor</div>
+                    <div class="message-content">Welcome to my DSA classroom. I'm here to teach you Data Structures and Algorithms - nothing else. Ask me about arrays, trees, graphs, sorting, searching, time complexity, or any other DSA topic. Don't waste my time with irrelevant questions.</div>
+                </div>
+            </div>
+            
+            <div class="loading" id="loading">
+                Instructor is thinking
+            </div>
+            
+            <div class="input-container">
+                <input 
+                    type="text" 
+                    class="input-field" 
+                    id="userInput" 
+                    placeholder="Ask me about DSA concepts (arrays, trees, algorithms, etc.)"
+                    maxlength="500"
+                >
+                <button class="send-button" id="sendButton">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Built for serious DSA learning • Powered by Gemini AI</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
