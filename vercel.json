@@ -12,7 +12,8 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/chat",
+      "methods": ["POST"],
       "dest": "/server.js"
     },
     {

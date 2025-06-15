@@ -412,20 +412,356 @@ body {
     }
 }
 
+/* ENHANCED PHONE MEDIA QUERIES */
+
+/* Large phones (iPhone 14 Plus, Samsung Galaxy S23+, etc.) */
 @media screen and (max-width: 480px) {
-    .chat-messages {
-        max-height: 30vh;
-        min-height: 200px;
+    body {
+        font-size: 14px;
+        background-image: 
+            radial-gradient(circle at 30% 20%, rgba(255, 107, 107, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+            linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
     }
     
-    .input-field, .send-button {
+    .container {
+        padding: 0.5rem;
+        gap: 0.75rem;
+    }
+    
+    .header {
+        padding: 0.75rem 0.5rem;
+        position: relative; /* Remove sticky on phones to save space */
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+        text-shadow: 0 0 15px var(--glow-color);
+    }
+    
+    .header p {
+        font-size: 0.8rem;
+        display: none; /* Hide subtitle on small phones to save space */
+    }
+    
+    .warning {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .chat-container {
+        border-radius: 12px;
+        min-height: 70vh;
+    }
+    
+    .chat-messages {
+        padding: 0.75rem;
+        max-height: 50vh;
+        min-height: 300px;
         font-size: 0.9rem;
+    }
+    
+    .message {
+        margin-bottom: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+        max-width: 92%;
+        font-size: 0.9rem;
+    }
+    
+    .message-header {
+        font-size: 0.75rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .message-content {
+        line-height: 1.5;
+        font-size: 0.9rem;
+    }
+    
+    .input-container {
+        padding: 0.75rem 0.5rem;
+        gap: 0.5rem;
+        flex-direction: row; /* Keep horizontal on larger phones */
+        position: sticky;
+        bottom: 0;
+        background: linear-gradient(135deg, var(--card-bg) 0%, rgba(18, 18, 24, 0.98) 100%);
+        backdrop-filter: blur(25px);
+        border-top: 2px solid var(--border-color);
+    }
+    
+    .input-field {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 10px;
+        min-height: 44px; /* iOS minimum touch target */
+    }
+    
+    .send-button {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+        border-radius: 10px;
+        min-width: 60px;
+        min-height: 44px; /* iOS minimum touch target */
+        letter-spacing: 0.3px;
+    }
+    
+    .footer {
+        padding: 1rem 0.5rem;
+        font-size: 0.75rem;
     }
 }
 
-/* High DPI displays */
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
+/* Standard phones (iPhone 14, Samsung Galaxy S23, Google Pixel 7, etc.) */
+@media screen and (max-width: 414px) {
     .header h1 {
-        text-shadow: 0 0 10px var(--glow-color);
+        font-size: 1.4rem;
+    }
+    
+    .chat-messages {
+        padding: 0.5rem;
+        max-height: 45vh;
+        min-height: 280px;
+    }
+    
+    .message {
+        padding: 0.65rem 0.85rem;
+        margin-bottom: 0.85rem;
+        max-width: 94%;
+    }
+    
+    .input-container {
+        padding: 0.65rem 0.5rem;
+        flex-direction: column; /* Stack vertically on smaller phones */
+        gap: 0.5rem;
+    }
+    
+    .input-field {
+        width: 100%;
+        padding: 0.7rem 0.9rem;
+    }
+    
+    .send-button {
+        width: 100%;
+        padding: 0.7rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Reduce effects for better performance on phones */
+    .message::before {
+        display: none;
+    }
+    
+    .send-button:hover:not(:disabled) {
+        transform: none; /* Disable hover transforms on touch devices */
+        box-shadow: 0 8px 25px var(--glow-color);
+    }
+}
+
+/* Small phones (iPhone SE, older Android phones) */
+@media screen and (max-width: 375px) {
+    .container {
+        padding: 0.25rem;
+        gap: 0.5rem;
+    }
+    
+    .header {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .header h1 {
+        font-size: 1.25rem;
+        margin-bottom: 0;
+    }
+    
+    .chat-container {
+        border-radius: 8px;
+        min-height: 75vh;
+    }
+    
+    .chat-messages {
+        padding: 0.5rem;
+        max-height: 40vh;
+        min-height: 250px;
+        font-size: 0.85rem;
+    }
+    
+    .message {
+        padding: 0.6rem 0.75rem;
+        margin-bottom: 0.75rem;
+        border-radius: 8px;
+        max-width: 96%;
+        font-size: 0.85rem;
+    }
+    
+    .message-header {
+        font-size: 0.7rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .message-content {
+        line-height: 1.4;
+        font-size: 0.85rem;
+    }
+    
+    .input-container {
+        padding: 0.5rem 0.25rem;
+        gap: 0.4rem;
+    }
+    
+    .input-field {
+        padding: 0.65rem 0.8rem;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+    
+    .send-button {
+        padding: 0.65rem;
+        font-size: 0.75rem;
+        border-radius: 8px;
+        letter-spacing: 0.2px;
+    }
+    
+    .warning {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+        border-radius: 6px;
+    }
+    
+    .footer {
+        padding: 0.75rem 0.25rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* Very small phones (older iPhones, compact Android phones) */
+@media screen and (max-width: 320px) {
+    .header h1 {
+        font-size: 1.1rem;
+    }
+    
+    .chat-messages {
+        max-height: 35vh;
+        min-height: 220px;
+        padding: 0.4rem;
+    }
+    
+    .message {
+        padding: 0.5rem 0.65rem;
+        margin-bottom: 0.6rem;
+        font-size: 0.8rem;
+        max-width: 98%;
+    }
+    
+    .message-content {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .input-field {
+        padding: 0.6rem 0.7rem;
+        font-size: 0.8rem;
+    }
+    
+    .send-button {
+        padding: 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    /* Simplify scrollbar for very small screens */
+    .chat-messages::-webkit-scrollbar {
+        width: 4px;
+    }
+}
+
+/* Landscape orientation on phones */
+@media screen and (max-width: 812px) and (orientation: landscape) {
+    .header {
+        position: relative;
+        padding: 0.5rem;
+    }
+    
+    .header h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+    
+    .header p {
+        display: none;
+    }
+    
+    .container {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .chat-messages {
+        max-height: 50vh;
+        min-height: 200px;
+        padding: 0.75rem;
+    }
+    
+    .input-container {
+        padding: 0.5rem;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+    
+    .send-button {
+        width: auto;
+        min-width: 80px;
+    }
+}
+
+/* High DPI phone displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 480px) {
+    .header h1 {
+        text-shadow: 0 0 8px var(--glow-color);
+    }
+    
+    .message {
+        box-shadow: 
+            0 4px 15px rgba(0, 0, 0, 0.2),
+            0 0 0 0.5px rgba(255, 255, 255, 0.03);
+    }
+    
+    .user-message {
+        box-shadow: 0 4px 15px var(--success-glow);
+    }
+    
+    .send-button {
+        box-shadow: 0 4px 15px var(--glow-color);
+    }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .send-button:hover:not(:disabled) {
+        transform: none;
+        box-shadow: 0 8px 25px var(--glow-color);
+    }
+    
+    .input-field:focus {
+        transform: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 2px var(--glow-color);
+    }
+    
+    /* Improve touch targets */
+    .input-field, .send-button {
+        min-height: 44px;
+    }
+    
+    /* Reduce motion for better battery life on mobile */
+    .message {
+        animation: none;
+    }
+    
+    @keyframes slideIn {
+        from { opacity: 0.7; }
+        to { opacity: 1; }
     }
 }
